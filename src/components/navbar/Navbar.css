@@ -1,0 +1,9 @@
+.nav-box{
+    padding: 10px;
+    background:#333;
+}
+.nav-box a{
+    color: white;
+    margin: 20px 10px;
+    text-decoration: none;
+}

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams, Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { useParams} from "react-router-dom";
+import Spinner from "./Spinner"
+import CardComp2 from "./CardComp2";
 
 const PostDetail = () => {
   const { id } = useParams(); // Get post ID from URL
@@ -24,24 +25,14 @@ const PostDetail = () => {
 
   if (loading)
     return (
-      <p className="text-center mt-4">
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </p>
+      <Spinner/>
     );
 
   if (error)
     return <p className="text-center text-danger mt-4">Error: {error}</p>;
 
   return (
-    <div className="container mt-4">
-      <h2 className="mb-3">{post.title}</h2>
-      <p>{post.body}</p>
-      <Link to="/users" className="btn btn-primary mt-3">
-        Back to Posts
-      </Link>
-    </div>
+    <CardComp2 post={post}/>
   );
 };
 
